@@ -7,55 +7,59 @@
   <title>Twitch API: How to Guide</title>
  </head>
  <body>
-  
-  <h1>Embedding multiple videos from a twitch channel</h1>
-     <div>
-         <p>Let's take what we have learned and go one step further. The following code will take the 3 most recent videos from swagcs' channel and embed them into a website.</p>
-         
-         <pre>
-         var req = new XMLHttpRequest();
-         var APIkey = "INSERT_YOUR_API_KEY_HERE";
-         var curQuery = "channels/swagcs/videos?limit=3";
-         req.open("GET", "https://api.twitch.tv/kraken/" + curQuery, true);
-         req.setRequestHeader("Client-ID", APIkey);
-         req.addEventListener("load", function(){
-             if(req.status >= 200 &amp;&amp; req.status &lt; 400){
-             var response = JSON.parse(req.responseText);
-             var i = 1;
-                         
-                         response.videos.forEach(function(video)
-                         {
-                            var options = {
-                            width: 854,
-                            height: 480,
-                            video: video._id
-                            };
-                         
-                            
-                            var player = new Twitch.Player("video" + i, options);
-                            player.setVolume(0.5);
-                            player.addEventListener(Twitch.Player.PAUSE, () => {console.log("Player is paused")});
-                            i++;
-                         });
-                     }
-             
-             else{
-             console.log("Error in network request: " + req.statusText);
-         }});
-         req.send(null);
-         event.preventDefault();</pre>
-         
-         <p>We replaced "console.log(response)" with the response.videos.forEach(function(video)) function. The code within that function allows us to embed videos into a website.</p>
-         
-         <p>In order to show the players that were created using Javascript you should add code like this to the body of your HTML file. <pre>&lt;script src= "http://player.twitch.tv/js/embed/v1.js"&gt;&lt;/script&gt;
-     &lt;div id="video1"&gt;&lt;/div&gt;
-     &lt;div id="video2"&gt;&lt;/div&gt;
-     &lt;div id="video3"&gt;&lt;/div&gt;</pre><a href="https://github.com/justintv/Twitch-API/blob/master/embed-video.md">Reference Code from Twitch API github</a></p>
-         
-         <img src="twitch-embedded-videos.JPG">
-         
-         <a class="btn btn-default" href="/JSON-response">Previous</a>
-         <a class="btn btn-default" href="/conclusion">Next</a>
+  <div class="container-fluid">
+         <div class="row">
+             <div class="col-md-8 col-md-offset-2">
+              <h1>Embedding multiple videos from a twitch channel</h1>
+
+                     <p>Let's take what we have learned and go one step further. The following code will take the 3 most recent videos from swagcs' channel and embed them into a website.</p>
+
+                     <pre>
+                     var req = new XMLHttpRequest();
+                     var APIkey = "INSERT_YOUR_API_KEY_HERE";
+                     var curQuery = "channels/swagcs/videos?limit=3";
+                     req.open("GET", "https://api.twitch.tv/kraken/" + curQuery, true);
+                     req.setRequestHeader("Client-ID", APIkey);
+                     req.addEventListener("load", function(){
+                         if(req.status >= 200 &amp;&amp; req.status &lt; 400){
+                         var response = JSON.parse(req.responseText);
+                         var i = 1;
+
+                                     response.videos.forEach(function(video)
+                                     {
+                                        var options = {
+                                        width: 854,
+                                        height: 480,
+                                        video: video._id
+                                        };
+
+
+                                        var player = new Twitch.Player("video" + i, options);
+                                        player.setVolume(0.5);
+                                        player.addEventListener(Twitch.Player.PAUSE, () => {console.log("Player is paused")});
+                                        i++;
+                                     });
+                                 }
+
+                         else{
+                         console.log("Error in network request: " + req.statusText);
+                     }});
+                     req.send(null);
+                     event.preventDefault();</pre>
+
+                     <p>We replaced "console.log(response)" with the response.videos.forEach(function(video)) function. The code within that function allows us to embed videos into a website.</p>
+
+                     <p>In order to show the players that were created using Javascript you should add code like this to the body of your HTML file. <pre>&lt;script src= "http://player.twitch.tv/js/embed/v1.js"&gt;&lt;/script&gt;
+                 &lt;div id="video1"&gt;&lt;/div&gt;
+                 &lt;div id="video2"&gt;&lt;/div&gt;
+                 &lt;div id="video3"&gt;&lt;/div&gt;</pre><a href="https://github.com/justintv/Twitch-API/blob/master/embed-video.md">Reference Code from Twitch API github</a></p>
+
+                     <img src="twitch-embedded-videos.JPG">
+
+                     <a class="btn btn-default" href="/JSON-response">Previous</a>
+                     <a class="btn btn-default" href="/conclusion">Next</a>
+      </div>
+     </div>
      </div>
  </body>
 </html>

@@ -7,20 +7,24 @@
   <title>Twitch API: How to Guide</title>
  </head>
  <body>
-  
-  <h1>Interpreting responses from the server in JSON</h1> 
-     <div>
-         <p>In the example code, the two lines <pre>var response = JSON.parse(req.responseText);
-             console.log(response);</pre> are responsible for parsing the data returned from the server and logging the parsed JSON object data to the console.</p>
-         
-         <p>If you look at the console after executing console.log(response), you will see a formatted JSON string containing all the information about Faker's stream.</p>
-         
-         <img src="twitch-JSON-response.JPG">
-         
-         <p>If you look at the image above, all the information is in key value pairs. If I wanted to get the broadcaster's language in a variable I could write the following line of code. <pre>var fakerLanguage = response.broadcaster_language</pre> According to the JSON formatted response string, his language is "ko". If I wanted to see what game he is playing I could write, <pre>response.game</pre> and assign it to a variable.</p>
-         
-         <a class="btn btn-default" href="/example-code">Previous</a>
-         <a class="btn btn-default" href="/further-examples">Next</a>
+  <div class="container-fluid">
+         <div class="row">
+             <div class="col-md-8 col-md-offset-2">
+              <h1>Interpreting responses from the server in JSON</h1> 
+                 
+                     <p>In the example code, the two lines <pre>var response = JSON.parse(req.responseText);
+                         console.log(response);</pre> are responsible for parsing the data returned from the server and logging the parsed JSON object data to the console.</p>
+
+                     <p>If you look at the console after executing console.log(response), you will see a formatted JSON string containing all the information about Faker's stream.</p>
+
+                     <img src="twitch-JSON-response.JPG">
+
+                     <p>If you look at the image above, all the information is in key value pairs. If I wanted to get the broadcaster's language in a variable I could write the following line of code. <pre>var fakerLanguage = response.broadcaster_language</pre> According to the JSON formatted response string, his language is "ko". If I wanted to see what game he is playing I could write, <pre>response.game</pre> and assign it to a variable.</p>
+
+                     <a class="btn btn-default" href="/example-code">Previous</a>
+                     <a class="btn btn-default" href="/further-examples">Next</a>
      </div>
+     </div>
+    </div>
  </body>
 </html>
