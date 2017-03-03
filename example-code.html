@@ -8,6 +8,27 @@
   
   <h1>Full Sample Code</h1>
      <div>
+         <p>Taking what we learned from the previous module, here is some sample Javascript code that uses the API correctly. Note that I did not include my own API key and you will need to insert your own key in order for this code to work.</p>
+         
+         <code>
+         var req = new XMLHttpRequest();
+         var APIkey = "INSERT_YOUR_API_KEY_HERE";
+         var curQuery = "channels/faker";
+         req.open("GET", "https://api.twitch.tv/kraken/" + curQuery, true);
+         req.setRequestHeader("Client-ID", APIkey);
+         req.addEventListener("load", function(){
+             if(req.status >= 200 &amp;&amp; req.status &lt; 400){
+             var response = JSON.parse(req.responseText);
+             console.log(response);}
+             else{
+             console.log("Error in network request: " + req.statusText);
+         }});
+         req.send(null);
+         event.preventDefault();</code>
+         
+         <p>All we needed to do was add the endpoint "channels/:channel_name" to the base URL. In the API documentation "GET/channels/:channel/" and in the previous sentence "channels/:channel_name" there is a colon after "channels/". The colon means you should add your specific request parameter to the endpoint.</p>
+         
+         
          <a class="prevButton" href="/API-requests">Previous</a>
          <a class="nextButton" href="/JSON-response">Next</a>
      </div>

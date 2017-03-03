@@ -8,6 +8,27 @@
   
   <h1>Making calls to the Twitch API</h1>
      <div>
+         <p>The typical call and response cycle of using an API is to create a request object with certain parameters which will tell Twitch exactly what information we are requesting. One of the parameters that are sent to Twitch is your API key which allows them to keep track of who is making what requests. The API will then go about collecting data from the server in response to your request and return that data formatted as a JSON (Javascript Object Notation) object. The object is a long string of information that must be parsed first for it to make some sense to us. It is up to you, the developer to choose what you want to do with the response data.</p>
+         
+         <h3>Let's get into the specifics of making a request call to the Twitch API.</h3>
+         
+         <p>To make a call to the Twitch API we use Javascript and AJAX (Asynchronous Javascript and XML). First, we create a request object using <code>var req = new XMLHttpRequest();</code>.</p>
+         
+         <p>Next we take the req object and open it to the API.
+             <code>req.open("GET", https://api.twitch.tv/kraken/" + curQuery, true);
+             req.setRequestHeader("Client-ID", APIkey);</code> The open function takes three parameters, the request method, the query, and the last parameter will take either true or false indicating whether you want a synchronous request. There are multiple request methods but for the sake of this guide we will only focus on "GET". The query for the Twitch API will always start with the base URL of "https://api.twitch.tv/kraken" and curQuery will be added on to the base URL. curQuery will be different depending on what information you are seeking from the server. req.setRequestHeader is used to send your API key in your request as a header.</p>
+         
+         <p>Next we add an event listener which checks whether the request was valid. <code>req.addEventListener("load", function(){
+             if(req.status >= 200 &amp;&amp; req.status &lt; 400){
+             var response = JSON.parse(req.responseText);
+             console.log(response);}
+             else{
+             console.log("Error in network request: " + req.statusText);
+             }});</code> A request status over 400 means that something has gone wrong. A request status under 400 means that the request has gone through. In the third line the response object holds the parsed JSON object data which is then logged to the console via console.log.</p>
+         
+         <p>Lastly we send the request using <code>req.send(null);
+             event.preventDefault();</code>"event.preventDefault();" prevents the browser from reloading and submitting the request before a response can be sent back.</p>
+         
          <a class="prevButton" href="/API-key">Previous</a>
          <a class="nextButton" href="/example-code">Next</a>
      </div>
