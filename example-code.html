@@ -2,6 +2,8 @@
 <html lang = "en">
  <head>
   <meta charset="UTF-8">
+       <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <title>Twitch API: How to Guide</title>
  </head>
  <body>
@@ -10,7 +12,7 @@
      <div>
          <p>Taking what we learned from the previous module, here is some sample Javascript code that uses the API correctly to return information about SKT Faker's (or the unkillable Demon King) twitch channel. Note that I did not include my own API key and you will need to insert your own key in order for this code to work.</p>
          
-         <code>
+         <pre>
          var req = new XMLHttpRequest();
          var APIkey = "INSERT_YOUR_API_KEY_HERE";
          var curQuery = "channels/faker";
@@ -24,13 +26,13 @@
              console.log("Error in network request: " + req.statusText);
          }});
          req.send(null);
-         event.preventDefault();</code>
+         event.preventDefault();</pre>
          
          <p>All we needed to do was set curQuery equal to "channels/faker" which was then added to the base URL to get "https://api.twitch.tv/kraken/channels/faker". If you look at the Twitch.tv API documentation and go to the /channel endpoint, you will see "GET/channels/:channel/". Note that there is a colon after "channels/". The colon means you should add your specific request parameter to the endpoint. In this particular case :channel became faker.</p>
          
          
-         <a class="prevButton" href="/API-requests">Previous</a>
-         <a class="nextButton" href="/JSON-response">Next</a>
+         <a class="btn btn-default" href="/API-requests">Previous</a>
+         <a class="btn btn-default" href="/JSON-response">Next</a>
      </div>
  </body>
 </html>

@@ -2,6 +2,8 @@
 <html lang = "en">
  <head>
   <meta charset="UTF-8">
+       <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <title>Twitch API: How to Guide</title>
  </head>
  <body>
@@ -10,7 +12,7 @@
      <div>
          <p>Let's take what we have learned and go one step further. The following code will take the 3 most recent videos from swagcs' channel and embed them into a website.</p>
          
-         <code>
+         <pre>
          var req = new XMLHttpRequest();
          var APIkey = "INSERT_YOUR_API_KEY_HERE";
          var curQuery = "channels/swagcs/videos?limit=3";
@@ -41,19 +43,19 @@
              console.log("Error in network request: " + req.statusText);
          }});
          req.send(null);
-         event.preventDefault();</code>
+         event.preventDefault();</pre>
          
          <p>We replaced "console.log(response)" with the response.videos.forEach(function(video)) function. The code within that function allows us to embed videos into a website.</p>
          
-         <p>In order to show the players that were created using Javascript you should add code like this to the body of your HTML file. <code>&lt;script src= "http://player.twitch.tv/js/embed/v1.js"&gt;&lt;/script&gt;
+         <p>In order to show the players that were created using Javascript you should add code like this to the body of your HTML file. <pre>&lt;script src= "http://player.twitch.tv/js/embed/v1.js"&gt;&lt;/script&gt;
      &lt;div id="video1"&gt;&lt;/div&gt;
      &lt;div id="video2"&gt;&lt;/div&gt;
-     &lt;div id="video3"&gt;&lt;/div&gt;</code><a href="https://github.com/justintv/Twitch-API/blob/master/embed-video.md">Reference Code from Twitch API github</a></p>
+     &lt;div id="video3"&gt;&lt;/div&gt;</pre><a href="https://github.com/justintv/Twitch-API/blob/master/embed-video.md">Reference Code from Twitch API github</a></p>
          
          <img src="twitch-embedded-videos.JPG">
          
-         <a class="prevButton" href="/JSON-response">Previous</a>
-         <a class="nextButton" href="/conclusion">Next</a>
+         <a class="btn btn-default" href="/JSON-response">Previous</a>
+         <a class="btn btn-default" href="/conclusion">Next</a>
      </div>
  </body>
 </html>
