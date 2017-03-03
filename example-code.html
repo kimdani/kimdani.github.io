@@ -8,7 +8,7 @@
   
   <h1>Full Sample Code</h1>
      <div>
-         <p>Taking what we learned from the previous module, here is some sample Javascript code that uses the API correctly. Note that I did not include my own API key and you will need to insert your own key in order for this code to work.</p>
+         <p>Taking what we learned from the previous module, here is some sample Javascript code that uses the API correctly to return information about SKT Faker's (or the unkillable Demon King) twitch channel. Note that I did not include my own API key and you will need to insert your own key in order for this code to work.</p>
          
          <code>
          var req = new XMLHttpRequest();
@@ -26,7 +26,7 @@
          req.send(null);
          event.preventDefault();</code>
          
-         <p>All we needed to do was add the endpoint "channels/:channel_name" to the base URL. In the API documentation "GET/channels/:channel/" and in the previous sentence "channels/:channel_name" there is a colon after "channels/". The colon means you should add your specific request parameter to the endpoint.</p>
+         <p>All we needed to do was set curQuery equal to "channels/faker" which was then added to the base URL to get "https://api.twitch.tv/kraken/channels/faker". If you look at the Twitch.tv API documentation and go to the /channel endpoint, you will see "GET/channels/:channel/". Note that there is a colon after "channels/". The colon means you should add your specific request parameter to the endpoint. In this particular case :channel became faker.</p>
          
          
          <a class="prevButton" href="/API-requests">Previous</a>
